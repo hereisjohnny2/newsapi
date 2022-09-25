@@ -77,14 +77,14 @@ impl NewsAPI {
     }
 
     fn prepare_url(&self) -> Result<String, NewsAPIError> {
-      let mut url = Url::parse(BASE_URL)?;
-      url.path_segments_mut()
-          .unwrap()
-          .push(&self.endpoint.to_string());
+        let mut url = Url::parse(BASE_URL)?;
+        url.path_segments_mut()
+            .unwrap()
+            .push(&self.endpoint.to_string());
 
-      let country = format!("country={}", self.country.to_string());
-      url.set_query(Some(&country));
+        let country = format!("country={}", self.country.to_string());
+        url.set_query(Some(&country));
 
-      Ok(url.to_string())
-  }
+        Ok(url.to_string())
+    }
 }
